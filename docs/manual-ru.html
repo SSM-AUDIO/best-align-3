@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Align 3 — Руководство пользователя</title>
+<style>
+  :root { color-scheme: light dark; --ink:#1d2026; --muted:#5d6572; --line:#d9dce2; --accent:#6b46d9; --panel:#f4f1fb; --warn:#fff5e0; --warnline:#e0a030; --tip:#e9f8f0; --tipline:#2a9d63; --bg:#fff; --code:#eef0f4; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#e8eaee; --muted:#9aa0ac; --line:#343840; --accent:#b07cff; --panel:#23262b; --warn:#3a3020; --tip:#1d3328; --bg:#15171a; --code:#262a31; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Segoe UI", system-ui, Arial, sans-serif; }
+  header.top { background:#17191d; color:#fff; padding:28px 20px; text-align:center; }
+  header.top h1 { margin:0; font-size:34px; letter-spacing:.03em; border:none; color:#fff; }
+  header.top .sub { color:#b07cff; font-size:18px; margin-top:4px; }
+  header.top .ver { color:#9aa0ac; font-size:14px; margin-top:8px; }
+  header.top a { color:#cfd2da; }
+  main { max-width:900px; margin:0 auto; padding:10px 20px 60px; }
+  h1 { font-size:26px; margin:46px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--accent); }
+  h2 { font-size:19px; margin:28px 0 8px; color:var(--accent); }
+  p { margin:0 0 12px; } ul, ol { margin:0 0 14px; padding-left:24px; } li { margin-bottom:5px; }
+  code, kbd { font-family:Consolas, "Courier New", monospace; font-size:14px; background:var(--code); padding:1px 6px; border-radius:4px; }
+  table { border-collapse:collapse; width:100%; margin:8px 0 18px; font-size:15px; display:block; overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:7px 10px; vertical-align:top; text-align:left; }
+  th { background:var(--panel); font-weight:600; }
+  .tip, .warn { padding:10px 14px; margin:14px 0; border-left:4px solid; border-radius:4px; }
+  .tip { background:var(--tip); border-color:var(--tipline); } .warn { background:var(--warn); border-color:var(--warnline); }
+  .tip b:first-child, .warn b:first-child { display:block; margin-bottom:2px; }
+  figure { margin:16px 0; text-align:center; } figure img { max-width:100%; border-radius:8px; border:1px solid var(--line); }
+  figcaption { font-size:13px; color:var(--muted); margin-top:6px; }
+  nav.toc { background:var(--panel); border-radius:10px; padding:14px 22px; margin:20px 0; columns:2; column-gap:30px; } nav.toc a { color:inherit; text-decoration:none; display:block; padding:2px 0; }
+  .steps { counter-reset:s; list-style:none; padding-left:0; } .steps li { counter-increment:s; position:relative; padding-left:38px; margin-bottom:10px; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:1px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:13px; text-align:center; line-height:26px; }
+  footer { border-top:1px solid var(--line); margin-top:50px; padding-top:16px; color:var(--muted); font-size:14px; }
+  @media (max-width:640px) { nav.toc { columns:1; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>BEST ALIGN 3</h1>
+  <div class="sub">Руководство пользователя</div>
+  <div class="ver">Версия 0.0.1 (черновик) · VST3 · Windows 10/11 · macOS позже · <a href="manual-en.html">English version</a></div>
+</header>
+<main>
+
+<nav class="toc">
+  <a href="#about">1. О плагине</a>
+  <a href="#install">2. Установка</a>
+  <a href="#licence">3. Пробный период и лицензия</a>
+  <a href="#quick">4. Быстрый старт</a>
+  <a href="#window">5. Окно плагина</a>
+  <a href="#phase">6. Фаза вручную</a>
+  <a href="#auto">7. Auto Align</a>
+  <a href="#output">8. Solo, Mute и уровень</a>
+  <a href="#groups">9. Группы, роли, Undo</a>
+  <a href="#settings">10. Настройки</a>
+  <a href="#daw">11. Заметки о DAW</a>
+  <a href="#trouble">12. Если что-то не так</a>
+  <a href="#legal">13. Правовая информация</a>
+</nav>
+
+<h1 id="about">1. О плагине</h1>
+<p><b>Best Align 3</b> выравнивает по фазе микрофоны живой ударной установки, записанные на <b>разные дорожки</b>. Вы ставите по одной копии плагина на каждую дорожку барабанов. Копии находят друг друга и работают как одна группа.</p>
+<ul>
+  <li>Показывает фазу группы: волну каждой дорожки, их сумму и число <b>Sum gain</b>.</li>
+  <li>Ставит <b>задержку</b> (целые сэмплы, до 50 мс) и <b>полярность</b> на каждой дорожке — вручную или кнопкой <b>Auto Align</b>.</li>
+  <li>Любой дорожкой можно управлять из окна любой копии плагина.</li>
+  <li>Вид Spectrum показывает, где дорожки складываются, а где гасят друг друга.</li>
+  <li>На каждой дорожке есть Solo, Mute и ручка уровня; Undo и A/B работают на всю группу.</li>
+</ul>
+<figure><img src="images/best-align-3.png" alt="Окно Best Align 3"><figcaption>Best Align 3: вид Phase, строки дорожек, Sum и Auto Align.</figcaption></figure>
+<p>В плагине нет сэмплов и собственного звука: звук каждой дорожки проходит через него, задержанный на заданную вами величину.</p>
+
+<h1 id="install">2. Установка</h1>
+<ol class="steps">
+  <li>Закройте DAW.</li>
+  <li>Запустите установщик. Он положит <code>Best Align 3.vst3</code> в папку <code>C:\Program Files\Common Files\VST3</code>.</li>
+  <li>Запустите DAW и дайте ей просканировать новые плагины. Найдите <b>Best Align 3</b> (производитель SSM-Audio) среди эффектов.</li>
+</ol>
+<p>Чтобы удалить плагин, используйте «Приложения» в параметрах Windows (или деинсталлятор) либо удалите папку <code>Best Align 3.vst3</code>.</p>
+
+<h1 id="licence">3. Пробный период и лицензия</h1>
+<p>При первом запуске плагин предлагает <b>пробный период 14 дней</b>: один на каждый компьютер. После него нужен <b>лицензионный ключ</b> из нашего магазина. Ключ работает на одном компьютере одновременно; чтобы перенести его, откройте окно лицензии и нажмите «Deactivate this computer», затем активируйте на другом компьютере. Для запуска пробного периода и активации нужен интернет; потом плагин работает и без него, а лицензию проверяет заново при каждом запуске и примерно раз в 12 часов.</p>
+<p>Ваш звук никуда не отправляется. Подробности — в лицензионном соглашении.</p>
+
+<h1 id="quick">4. Быстрый старт</h1>
+<ol class="steps">
+  <li>Поставьте <b>Best Align 3</b> на <b>каждую дорожку с микрофоном барабанов</b> (бочка, малый, томы, оверхеды, комнатные), <b>первым в цепочке</b>, до любых плагинов, которые добавляют задержку.</li>
+  <li>Номер <b>Group</b> оставьте 1 на всех. Копии с одинаковым номером работают вместе.</li>
+  <li>Проверьте <b>роль</b> каждой дорожки в её строке (Kick In, Snare Top, OH …). Плагин угадывает её по названию дорожки в DAW; роль можно выбрать из списка.</li>
+  <li>Проиграйте барабаны <b>из DAW</b> примерно <b>8 секунд подряд</b>. Когда всё готово, кнопка <b>Auto Align</b> загорается.</li>
+  <li>Нажмите <b>Auto Align</b>. В каждой строке видно, что найдено. <b>Sum gain</b> растёт, когда дорожки согласованы.</li>
+  <li>Послушайте. Если одну дорожку нужно подправить, потяните её линию в виде Phase или введите задержку (раздел 6).</li>
+</ol>
+<div class="tip"><b>Подсказка</b>Если кнопка остаётся тёмной: DAW должна играть, без прыжка петли короче 8 секунд, и в дорожках должны быть удары. После клика по тёмной кнопке нижняя строка говорит, чего не хватает.</div>
+
+<h1 id="window">5. Окно плагина</h1>
+<table>
+<tr><th>Часть</th><th>Что делает</th></tr>
+<tr><td><b>Шапка</b></td><td>A / B / Copy: две настройки всей группы для сравнения. Undo / Redo: последние 20 шагов. Шестерёнка: настройки (раздел 10).</td></tr>
+<tr><td><b>Phase</b></td><td>Бас каждой дорожки вокруг одного удара после её задержки и полярности — ровно то, что играют плагины. Один цвет на дорожку; белая волна — сумма. Когда дорожки в фазе, сумма выше любой из них. У каждой дорожки есть вертикальная линия с ручкой сверху.</td></tr>
+<tr><td><b>Spectrum</b></td><td>Сумма дорожек против суммы их мощностей (тонкая серая линия). Где оранжевая кривая выше серой, дорожки помогают друг другу; где ниже — гасят (гребенчатый фильтр). Кнопки сверху: Speed, Mode (Energy / RMS), Slope, Bands; стрелки двигают картинку; Reset.</td></tr>
+<tr><td><b>Hold</b></td><td>Останавливает картинку, чтобы её рассмотреть.</td></tr>
+<tr><td><b>Строка дорожки</b></td><td>Круглая галка (показать или скрыть волну этой дорожки в Phase и Spectrum), название из DAW, роль, задержка, полярность <code>Ø</code>, <code>REF</code>, кнопка полосы, <code>S</code>, <code>M</code>, ручка уровня, индикатор уровня и то, что нашёл Auto Align.</td></tr>
+<tr><td><b>Sum</b></td><td>Галка (показать или скрыть белую волну) и крупное <b>Sum gain</b> в дБ по последним ударам. +3 дБ: два одинаковых сигнала складываются идеально. 0 дБ: дорожки не помогают друг другу. Ниже 0: гасят. Здесь же номер <b>Group</b>.</td></tr>
+<tr><td><b>Auto Align, Reset phase, Reset levels</b></td><td>См. разделы 7 и 8.</td></tr>
+</table>
+<div class="tip"><b>Считаются только дорожки с включённой галкой</b>Sum, Sum gain и Spectrum составляются только из дорожек с включённой галкой. Выключите дорожку, чтобы услышать, как звучат остальные вместе.</div>
+<p>Если дорожек больше семи, высота окна не меняется, а список строк прокручивается (колесо мыши или полоса прокрутки). Окно можно масштабировать уголком справа внизу (двойной клик — 100 %) или в меню настроек.</p>
+
+<h1 id="phase">6. Фаза вручную</h1>
+<ul>
+  <li><b>Потяните линию</b> дорожки в виде Phase вбок. Задержка меняется прямо при перетаскивании, волна и сумма следуют за ней. <kbd>Shift</kbd> — в десять раз точнее. Двойной клик по линии — задержка 0.</li>
+  <li><b>Окошко задержки</b> в строке: тяните его или крутите колесо мыши (0,05 мс за щелчок; <kbd>Shift</kbd> — один сэмпл), двойной клик — 0, <b>правый клик</b> — ввод числа: миллисекунды (<code>2.3</code>) или сэмплы с буквой s после числа (<code>110s</code>).</li>
+  <li><code>Ø</code> переворачивает полярность дорожки.</li>
+  <li><code>REF</code> делает дорожку эталоном. Эталон никогда не задерживается больше, чем нужно остальным; обычно это оверхеды.</li>
+</ul>
+<p>Задержка — от 0 до 50 мс целыми сэмплами. Изменение сглаживается за 5 мс, поэтому щелчков нет.</p>
+
+<h1 id="auto">7. Auto Align</h1>
+<p>Auto Align слушает последние 8 секунд каждой дорожки и ставит задержку и полярность каждой относительно эталона. Нужны минимум две дорожки и удары в эталоне.</p>
+<ul>
+  <li><b>Эталон</b> — дорожка с кнопкой <code>REF</code>; если её нет, то оверхеды, затем комнатный микрофон, затем первая дорожка.</li>
+  <li>Кнопка <b>полосы</b> дорожки выбирает, где смотреть фазу: <b>Auto</b> (по роли: бас для бочки и томов, весь звук для остальных), <b>Bass</b> или <b>Full</b>.</li>
+  <li>Результат каждой дорожки виден в её строке: <i>N% direct</i> (найдено по её собственным ударам), <i>with its drum</i> (найдено через другие микрофоны той же бочки или малого), <i>follows its drum</i>, <i>reference</i>, <i>left as it is</i> (мало данных: ничего не менялось).</li>
+  <li>Нижняя строка говорит, сколько дорожек выровнено. <b>Undo</b> возвращает прежние настройки.</li>
+</ul>
+<div class="warn"><b>Это разовое действие</b>Auto Align работает, когда вы нажимаете кнопку. Плагин сам не меняет задержки во время игры; он только постоянно показывает фазу и Sum gain.</div>
+
+<h1 id="output">8. Solo, Mute и уровень</h1>
+<p>Работают на <b>выходе</b> дорожки, как в микшере. Фаза, Sum gain и Auto Align от них не зависят: группа всегда слышит дорожку такой, какой она записана.</p>
+<ul>
+  <li><code>S</code> Solo: пока у какой-то дорожки группы включено Solo, остальные молчат. <b>Правый клик</b> по <code>S</code>: Solo только у этой дорожки.</li>
+  <li><code>M</code> Mute. <b>Правый клик</b> по <code>M</code>: заглушена только эта дорожка.</li>
+  <li><b>Ручка</b>: от -60 до +12 дБ. Тянуть, колесо, двойной клик — 0 дБ, правый клик — ввод числа.</li>
+  <li><b>Reset phase</b>: все задержки 0, полярность не перевёрнута. <b>Reset levels</b>: все уровни 0 дБ, без Mute и Solo. Каждая кнопка не трогает то, что сбрасывает другая.</li>
+</ul>
+
+<h1 id="groups">9. Группы, роли, Undo</h1>
+<ul>
+  <li><b>Group</b> (от 1 до 8): копии с одинаковым номером работают вместе. Для одной установки нужна одна группа. Второй номер — для второй, независимой установки в том же проекте.</li>
+  <li><b>Роль</b>: Kick In, Kick Out, Kick Sub, Snare Top, Snare Bottom, Tom 1–3, Hi-Hat, OH (оверхеды), Room, Other. Роль следует за названием дорожки, пока вы не выберете её сами. Роль любой дорожки можно выбрать из окна любой копии.</li>
+  <li><b>Undo / Redo</b> хранят последние 20 шагов: задержки, полярность, полосу, эталон, Solo, Mute и уровни. <b>A / B</b> — две настройки всей группы; <b>Copy</b> копирует включённую на другую.</li>
+</ul>
+
+<h1 id="settings">10. Настройки</h1>
+<p>Шестерёнка в шапке: масштаб окна (70–200 %), подсказки вкл/выкл, индикаторы уровня вкл/выкл, быстрый старт и About. Настройки общие для всех копий плагина.</p>
+
+<h1 id="daw">11. Заметки о DAW</h1>
+<ul>
+  <li>Плагин <b>намеренно не сообщает задержку</b> (latency) DAW: иначе DAW сама отменила бы выравнивание. Какую задержку вы поставили, такую вы и слышите.</li>
+  <li>Ставьте плагин первым на дорожке. Плагин перед ним, меняющий время, изменит то, что он слышит.</li>
+  <li>Копии должны быть в <b>одном проекте</b> и играть вместе. Они обмениваются звуком внутри вашего компьютера, через общую между ними память.</li>
+  <li>Когда DAW остановлена, остаётся последняя картинка, а линии по-прежнему следуют за поставленными вами задержками. Для Auto Align DAW должна играть.</li>
+  <li>Проверено в REAPER. Другие DAW с VST3 (Studio One, Cubase, Ableton, FL Studio, Bitwig, Reason) проверяются.</li>
+</ul>
+
+<h1 id="trouble">12. Если что-то не так</h1>
+<table>
+<tr><th>Проблема</th><th>Что делать</th></tr>
+<tr><td>Вид Phase пуст, строка без дорожки</td><td>Проиграйте дорожки из DAW. Минимум две копии одной группы должны стоять на играющих дорожках.</td></tr>
+<tr><td>Auto Align остаётся тёмным</td><td>Играйте 8 секунд подряд без прыжка (петля короче слишком коротка). В эталоне должны быть удары.</td></tr>
+<tr><td>Строка говорит «left as it is»</td><td>Плагин не нашёл достаточно ударов, которые слышит и эталон. Выберите полосу (Bass или Full) или поставьте эту дорожку вручную.</td></tr>
+<tr><td>Две установки перемешались</td><td>Дайте второй установке другой номер Group.</td></tr>
+<tr><td>Плагин не появился в DAW</td><td>Пересканируйте плагины. Файл должен лежать в <code>C:\Program Files\Common Files\VST3</code>.</td></tr>
+<tr><td>Установщик не может заменить файл</td><td>Он открыт в DAW. Закройте DAW полностью и установите снова.</td></tr>
+</table>
+
+<h1 id="legal">13. Правовая информация</h1>
+<p>Best Align 3 лицензируется, а не продаётся. См. лицензионное соглашение (EULA), которое идёт с установщиком. © 2026 SSM-Audio. VST — торговая марка Steinberg Media Technologies GmbH. Плагин использует фреймворк JUCE (© Raw Material Software Limited).</p>
+
+<footer>Best Align 3 · версия 0.0.1 · SSM-Audio</footer>
+</main>
+</body>
+</html>

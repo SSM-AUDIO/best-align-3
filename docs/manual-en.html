@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Align 3 — User Manual</title>
+<style>
+  :root { color-scheme: light dark; --ink:#1d2026; --muted:#5d6572; --line:#d9dce2; --accent:#6b46d9; --panel:#f4f1fb; --warn:#fff5e0; --warnline:#e0a030; --tip:#e9f8f0; --tipline:#2a9d63; --bg:#fff; --code:#eef0f4; }
+  @media (prefers-color-scheme: dark) { :root { --ink:#e8eaee; --muted:#9aa0ac; --line:#343840; --accent:#b07cff; --panel:#23262b; --warn:#3a3020; --tip:#1d3328; --bg:#15171a; --code:#262a31; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Segoe UI", system-ui, Arial, sans-serif; }
+  header.top { background:#17191d; color:#fff; padding:28px 20px; text-align:center; }
+  header.top h1 { margin:0; font-size:34px; letter-spacing:.03em; border:none; color:#fff; }
+  header.top .sub { color:#b07cff; font-size:18px; margin-top:4px; }
+  header.top .ver { color:#9aa0ac; font-size:14px; margin-top:8px; }
+  header.top a { color:#cfd2da; }
+  main { max-width:900px; margin:0 auto; padding:10px 20px 60px; }
+  h1 { font-size:26px; margin:46px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--accent); }
+  h2 { font-size:19px; margin:28px 0 8px; color:var(--accent); }
+  p { margin:0 0 12px; } ul, ol { margin:0 0 14px; padding-left:24px; } li { margin-bottom:5px; }
+  code, kbd { font-family:Consolas, "Courier New", monospace; font-size:14px; background:var(--code); padding:1px 6px; border-radius:4px; }
+  table { border-collapse:collapse; width:100%; margin:8px 0 18px; font-size:15px; display:block; overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:7px 10px; vertical-align:top; text-align:left; }
+  th { background:var(--panel); font-weight:600; }
+  .tip, .warn { padding:10px 14px; margin:14px 0; border-left:4px solid; border-radius:4px; }
+  .tip { background:var(--tip); border-color:var(--tipline); } .warn { background:var(--warn); border-color:var(--warnline); }
+  .tip b:first-child, .warn b:first-child { display:block; margin-bottom:2px; }
+  figure { margin:16px 0; text-align:center; } figure img { max-width:100%; border-radius:8px; border:1px solid var(--line); }
+  figcaption { font-size:13px; color:var(--muted); margin-top:6px; }
+  nav.toc { background:var(--panel); border-radius:10px; padding:14px 22px; margin:20px 0; columns:2; column-gap:30px; } nav.toc a { color:inherit; text-decoration:none; display:block; padding:2px 0; }
+  .steps { counter-reset:s; list-style:none; padding-left:0; } .steps li { counter-increment:s; position:relative; padding-left:38px; margin-bottom:10px; }
+  .steps li::before { content:counter(s); position:absolute; left:0; top:1px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:13px; text-align:center; line-height:26px; }
+  footer { border-top:1px solid var(--line); margin-top:50px; padding-top:16px; color:var(--muted); font-size:14px; }
+  @media (max-width:640px) { nav.toc { columns:1; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>BEST ALIGN 3</h1>
+  <div class="sub">User Manual</div>
+  <div class="ver">Version 0.0.1 (draft) · VST3 · Windows 10/11 · macOS later · <a href="manual-ru.html">Русская версия</a></div>
+</header>
+<main>
+
+<nav class="toc">
+  <a href="#about">1. About</a>
+  <a href="#install">2. Installation</a>
+  <a href="#licence">3. Trial and licence</a>
+  <a href="#quick">4. Quick start</a>
+  <a href="#window">5. The window</a>
+  <a href="#phase">6. Setting the phase by hand</a>
+  <a href="#auto">7. Auto Align</a>
+  <a href="#output">8. Solo, Mute and level</a>
+  <a href="#groups">9. Groups, roles, undo</a>
+  <a href="#settings">10. Settings</a>
+  <a href="#daw">11. Notes for the DAW</a>
+  <a href="#trouble">12. Troubleshooting</a>
+  <a href="#legal">13. Legal</a>
+</nav>
+
+<h1 id="about">1. About</h1>
+<p><b>Best Align 3</b> lines up the phase of the microphones of a live drum kit that are recorded on <b>separate tracks</b>. You put one copy of the plugin on every drum track. The copies find each other and work as one group.</p>
+<ul>
+  <li>Shows the phase of the group: the wave of every track, their sum, and the <b>Sum gain</b> number.</li>
+  <li>Sets a <b>delay</b> (whole samples, up to 50 ms) and the <b>polarity</b> on every track — by hand or with <b>Auto Align</b>.</li>
+  <li>Every track can be worked on from the window of any copy of the plugin.</li>
+  <li>A Spectrum view shows where the tracks add up and where they cancel.</li>
+  <li>Solo, Mute and a level knob on every track, Undo and A/B for the whole group.</li>
+</ul>
+<figure><img src="images/best-align-3.png" alt="The window of Best Align 3"><figcaption>Best Align 3: the Phase view, the rows of the tracks, the Sum and Auto Align.</figcaption></figure>
+<p>The plugin has no samples and no sound of its own: the audio of every track goes through it, delayed by the amount you set.</p>
+
+<h1 id="install">2. Installation</h1>
+<ol class="steps">
+  <li>Close your DAW.</li>
+  <li>Run the installer. It puts <code>Best Align 3.vst3</code> into <code>C:\Program Files\Common Files\VST3</code>.</li>
+  <li>Start the DAW and let it scan for new plugins. Find <b>Best Align 3</b> (maker SSM-Audio) among the effects.</li>
+</ol>
+<p>To remove the plugin, use "Apps" in Windows Settings (or the uninstaller), or delete the folder <code>Best Align 3.vst3</code>.</p>
+
+<h1 id="licence">3. Trial and licence</h1>
+<p>On the first start the plugin offers a <b>14-day trial</b>: one for every computer. After that you need a <b>licence key</b> from our store. A key works on one computer at a time; to move it, open the licence window and press "Deactivate this computer", then activate it on the other computer. The plugin needs the internet to start the trial and to activate; it then works without it, and checks the licence again at every start and about every 12 hours.</p>
+<p>Your audio is never sent anywhere. See the licence agreement for the details.</p>
+
+<h1 id="quick">4. Quick start</h1>
+<ol class="steps">
+  <li>Put <b>Best Align 3</b> on <b>every drum microphone track</b> (kick, snare, toms, overheads, rooms), <b>first in the chain</b>, before any plugin that adds delay.</li>
+  <li>Leave the <b>Group</b> number at 1 on all of them. Copies with the same number work together.</li>
+  <li>Check the <b>role</b> of every track in its row (Kick In, Snare Top, OH …). The plugin guesses it from the name of the track in the DAW; you can choose it from the list.</li>
+  <li>Play the drums <b>from the DAW</b> for about <b>8 seconds in a row</b>. The <b>Auto Align</b> button lights up when it is ready.</li>
+  <li>Press <b>Auto Align</b>. Every row shows what was found. <b>Sum gain</b> goes up when the tracks agree.</li>
+  <li>Listen. If one track needs a touch, drag its line in the Phase view, or type its delay (see section 6).</li>
+</ol>
+<div class="tip"><b>Tip</b>If the button stays dark: the DAW must be playing, with no loop jump shorter than 8 seconds, and there must be hits in the tracks. After a click on a dark button the bottom line tells what is missing.</div>
+
+<h1 id="window">5. The window</h1>
+<table>
+<tr><th>Part</th><th>What it does</th></tr>
+<tr><td><b>Header</b></td><td>A / B / Copy: two settings of the whole group to compare. Undo / Redo: the last 20 steps. The gear: settings (section 10).</td></tr>
+<tr><td><b>Phase</b></td><td>The bass of every track around one hit, after its delay and polarity — exactly what the plugins play. One colour per track; the white wave is the sum. When the tracks are in phase the sum is taller than any of them. Every track has a vertical line with a handle at the top.</td></tr>
+<tr><td><b>Spectrum</b></td><td>The sum of the tracks against the sum of their powers (the thin grey line). Where the orange curve is above the grey line the tracks help each other; where it falls below, they cancel (a comb filter). Chips at the top: Speed, Mode (Energy / RMS), Slope, Bands; arrows move the picture; Reset.</td></tr>
+<tr><td><b>Hold</b></td><td>Stops the picture so you can look at it.</td></tr>
+<tr><td><b>A row of a track</b></td><td>The round tick (show or hide the wave of this track, in Phase and Spectrum), the name from the DAW, the role, the delay, the polarity <code>Ø</code>, <code>REF</code>, the band button, <code>S</code>, <code>M</code>, the level knob, a level meter and what Auto Align found.</td></tr>
+<tr><td><b>Sum</b></td><td>The tick (show or hide the white wave) and the big <b>Sum gain</b> in dB, judged on the last hits. +3 dB: two equal signals add up perfectly. 0 dB: the tracks do not help each other. Below 0: they cancel. The <b>Group</b> number is here too.</td></tr>
+<tr><td><b>Auto Align, Reset phase, Reset levels</b></td><td>See sections 7 and 8.</td></tr>
+</table>
+<div class="tip"><b>Only the tracks that are ticked count</b>The Sum, Sum gain and the Spectrum are made only of the tracks whose tick is on. Switch a track off to see how the others sound together.</div>
+<p>More than seven tracks: the window keeps its height and the list of the rows scrolls (mouse wheel or the scroll bar). The window can be scaled with the grip in the lower right corner (double click = 100 %) or in the settings menu.</p>
+
+<h1 id="phase">6. Setting the phase by hand</h1>
+<ul>
+  <li><b>Drag the line</b> of a track in the Phase view sideways. Its delay changes while you drag, and the wave and the sum follow. <kbd>Shift</kbd> = ten times finer. Double click on a line = delay 0.</li>
+  <li><b>The delay box</b> in the row: drag it, or use the mouse wheel (0.05 ms a notch; <kbd>Shift</kbd> = one sample), double click = 0, <b>right click</b> = type a number: milliseconds (<code>2.3</code>) or samples with an s behind (<code>110s</code>).</li>
+  <li><code>Ø</code> turns the polarity of the track over.</li>
+  <li><code>REF</code> makes this track the reference. It is the one that is never delayed more than the others need; usually the overheads.</li>
+</ul>
+<p>The delay is from 0 to 50 ms in whole samples. A change is faded over 5 ms, so there is no click.</p>
+
+<h1 id="auto">7. Auto Align</h1>
+<p>Auto Align listens to the last 8 seconds of every track and sets the delay and the polarity of each of them against the reference. It needs at least two tracks and some hits in the reference.</p>
+<ul>
+  <li>The <b>reference</b> is the track you marked with <code>REF</code>; if none, the overheads, then a room microphone, then the first track.</li>
+  <li>The <b>band</b> button of a track chooses where the phase is looked at: <b>Auto</b> (by the role: bass for kick and toms, the whole sound for the rest), <b>Bass</b> or <b>Full</b>.</li>
+  <li>The result of every track is in its row: <i>N% direct</i> (found on its own hits), <i>with its drum</i> (found through the other microphones of the same drum), <i>follows its drum</i>, <i>reference</i>, <i>left as it is</i> (not enough evidence: nothing was changed).</li>
+  <li>The bottom line tells how many tracks were aligned. <b>Undo</b> brings the old settings back.</li>
+</ul>
+<div class="warn"><b>It is a one-time action</b>Auto Align works when you press the button. The plugin does not change the delays by itself while you play; it only shows the phase and Sum gain all the time.</div>
+
+<h1 id="output">8. Solo, Mute and level</h1>
+<p>These work on the <b>output</b> of the track, like in a mixer. The phase, Sum gain and Auto Align do not depend on them: the group always hears the track as it was recorded.</p>
+<ul>
+  <li><code>S</code> Solo: while any track of the group is solo, the tracks that are not are silent. <b>Right click</b> on <code>S</code>: only this track is solo.</li>
+  <li><code>M</code> Mute. <b>Right click</b> on <code>M</code>: only this track is muted.</li>
+  <li><b>The knob</b>: -60 to +12 dB. Drag, wheel, double click = 0 dB, right click = type a number.</li>
+  <li><b>Reset phase</b>: every delay 0, no polarity turned over. <b>Reset levels</b>: every level 0 dB, no mute, no solo. Each leaves the other alone.</li>
+</ul>
+
+<h1 id="groups">9. Groups, roles, undo</h1>
+<ul>
+  <li><b>Group</b> (1 to 8): copies with the same number work together. One drum kit needs only one group. Use a second number for a second, independent kit in the same project.</li>
+  <li><b>Role</b>: Kick In, Kick Out, Kick Sub, Snare Top, Snare Bottom, Tom 1–3, Hi-Hat, OH (the overheads), Room, Other. The role follows the name of the track until you choose a role yourself. You can choose the role of any track from the window of any copy.</li>
+  <li><b>Undo / Redo</b> keep the last 20 steps: delays, polarity, band, reference, solo, mute and levels. <b>A / B</b> are two settings of the whole group; <b>Copy</b> puts the one that is on onto the other.</li>
+</ul>
+
+<h1 id="settings">10. Settings</h1>
+<p>The gear in the header: window scale (70–200 %), tooltips on or off, level meters on or off, the quick start guide, and About. The settings are kept for all copies of the plugin.</p>
+
+<h1 id="daw">11. Notes for the DAW</h1>
+<ul>
+  <li>The plugin <b>does not report latency</b> to the DAW on purpose: if it did, the DAW would cancel the alignment. The delay you set is the delay you hear.</li>
+  <li>Put the plugin first on the track. A plugin before it that changes the timing will change what it hears.</li>
+  <li>The copies must be in the <b>same project</b> and play together. They exchange sound inside your computer, in memory shared between them.</li>
+  <li>While the DAW is stopped the last picture stays, and the lines still follow the delays you set. Auto Align needs the DAW to play.</li>
+  <li>Tested in REAPER. Other DAWs with VST3 (Studio One, Cubase, Ableton, FL Studio, Bitwig, Reason) are being checked.</li>
+</ul>
+
+<h1 id="trouble">12. Troubleshooting</h1>
+<table>
+<tr><th>Problem</th><th>What to do</th></tr>
+<tr><td>The Phase view is empty, a row shows no track</td><td>Play the tracks from the DAW. At least two copies in the same group must be on tracks that are playing.</td></tr>
+<tr><td>Auto Align stays dark</td><td>Play for 8 seconds in a row without a jump (a loop shorter than that is too short). The reference track must have hits.</td></tr>
+<tr><td>A row says "left as it is"</td><td>The plugin did not find enough hits that the reference hears too. Choose the band (Bass or Full), or set that track by hand.</td></tr>
+<tr><td>Two kits mix up</td><td>Give the second kit another Group number.</td></tr>
+<tr><td>The plugin does not appear in the DAW</td><td>Rescan the plugins. The file must be in <code>C:\Program Files\Common Files\VST3</code>.</td></tr>
+<tr><td>The installer cannot replace the file</td><td>The DAW has it open. Close the DAW completely and install again.</td></tr>
+</table>
+
+<h1 id="legal">13. Legal</h1>
+<p>Best Align 3 is licensed, not sold. See the licence agreement (EULA) that comes with the installer. © 2026 SSM-Audio. VST is a trademark of Steinberg Media Technologies GmbH. The plugin uses the JUCE framework (© Raw Material Software Limited).</p>
+
+<footer>Best Align 3 · version 0.0.1 · SSM-Audio</footer>
+</main>
+</body>
+</html>
