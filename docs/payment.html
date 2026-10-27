@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <title>Buy Best Align 3 — SSM-Audio</title>
 <style>
-  :root { color-scheme: light dark; --bg:#f8f7f4; --ink:#1b2233; --muted:#5d6572; --pill:#dceaf3; --pill-hover:#c8ddeb; --pill-ink:#17365d; --link:#2c6a8e; --line:#e0ddd5; --logo-filter:invert(.85); }
+  :root { color-scheme: light dark; --bg:#f8f7f4; --ink:#1b2233; --muted:#5d6572; --pill:#dceaf3; --pill-hover:#c8ddeb; --pill-ink:#17365d; --link:#2c6a8e; --line:#e0ddd5; --logo-filter:invert(.85); --warn:rgba(217,130,43,.12); }
   @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --ink:#e9ebf0; --muted:#a0a6b2; --pill:#303e55; --pill-hover:#3d506e; --pill-ink:#f2f4f8; --link:#8cc2e6; --line:#2c3038; --logo-filter:none; } }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.55 "Segoe UI", system-ui, Arial, sans-serif; }
@@ -15,47 +15,113 @@
   .brand { display:flex; align-items:center; gap:12px; font-size:26px; font-weight:600; text-decoration:none; color:var(--ink); }
   .brand img { height:44px; filter:var(--logo-filter); }
   .top a { display:inline-block; background:var(--pill); color:var(--pill-ink); text-decoration:none; font-weight:600; padding:10px 22px; border-radius:99px; margin-left:8px; }
+  .lang button { background:transparent; border:1px solid var(--line); color:var(--muted); font:inherit; font-size:14px; padding:6px 12px; border-radius:99px; cursor:pointer; margin-left:6px; }
+  .lang button.on { background:var(--pill); color:var(--pill-ink); font-weight:600; }
   h1 { font-size:40px; line-height:1.1; margin:0 0 10px; }
   .lead { font-size:22px; color:var(--muted); margin:0 0 22px; }
   .price { font-size:34px; font-weight:700; margin:0 0 6px; }
-  .pay { display:inline-flex; align-items:center; gap:12px; background:var(--pill); color:var(--pill-ink); text-decoration:none; font-weight:700; font-size:20px; padding:14px 30px; border-radius:99px; margin:14px 0; }
-  .pay:hover { background:var(--pill-hover); }
   .muted { color:var(--muted); font-size:16px; }
   h2 { font-size:22px; margin:30px 0 8px; }
   a { color:var(--link); }
-  .pay, .top a { color:var(--pill-ink); }
+  form { margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  input, select { padding:12px 14px; border-radius:12px; border:1px solid var(--line); background:var(--bg); color:var(--ink); font:inherit; }
+  input { flex:1 1 220px; }
+  button.buy { padding:12px 26px; border-radius:99px; border:0; background:var(--pill); color:var(--pill-ink); font:inherit; font-weight:700; cursor:pointer; }
+  button.buy:disabled { opacity:.5; cursor:default; }
+  .warn { margin-top:16px; padding:14px 16px; border-radius:14px; border:2px solid #d9822b; background:var(--warn); }
+  .warn ol { margin:6px 0 0; padding-left:20px; }
+  .key { font:700 28px Consolas, monospace; letter-spacing:1px; padding:16px 18px; border:1px solid var(--line); border-radius:14px; display:inline-block; margin:10px 0; }
+  [hidden] { display:none !important; }
 </style>
 </head>
 <body>
 <div class="page">
   <header>
     <a class="brand" href="https://ssm-audio.github.io/"><img src="images/ssm-logo.png" alt="">SSM-Audio</a>
-    <div class="top"><a href="download.html">Download</a><a href="manual-en.html">Manual</a></div>
+    <div class="top"><a href="download.html" data-en="Download" data-ru="Скачать">Download</a><a href="manual-en.html" data-en="Manual" data-ru="Руководство">Manual</a>
+      <span class="lang"><button id="l-en" type="button">EN</button><button id="l-ru" type="button">RU</button></span></div>
   </header>
 
-  <section id="english">
-    <h1>Best Align 3</h1>
-    <p class="lead">Line up the phase of your drum microphones.</p>
-    <p class="price">2900 RUB</p>
-    <p class="muted">One licence key, one computer at a time. Write to us in Telegram: we send the payment details and the key. (The shop page is coming.) Try it first: a 14-day trial with all functions is in the installer.</p>
-    <a class="pay" href="https://t.me/ssm_metalmix">Buy: write to us in Telegram</a>
-    <h2>After the payment</h2>
-    <p>Download the installer on the <a href="download.html">download page</a>, install it, put Best Align 3 first on every drum microphone track, and enter the key in the licence window (internet is needed once).</p>
-    <p class="muted">No key or need help: <a href="https://t.me/ssm_metalmix">Telegram</a>. Please give the number of the order.</p>
-  </section>
+  <h1>Best Align 3</h1>
+  <p class="lead" data-en="Line up the phase of your drum microphones." data-ru="Выравнивание по фазе микрофонов барабанов.">Line up the phase of your drum microphones.</p>
+  <p class="price" id="price">2900 &#8381;</p>
+  <p class="muted" data-en="One licence key, one computer at a time. You get the key on the page right after the payment. Try it first: a 14-day trial with all functions is in the installer." data-ru="Один лицензионный ключ — один компьютер одновременно. Ключ появится на странице сразу после оплаты. Сначала попробуйте: пробный период 14 дней со всеми функциями есть в установщике.">One licence key, one computer at a time.</p>
+  <p data-en="Payment by card or from a YooMoney wallet." data-ru="Оплата картой или с кошелька ЮMoney.">Payment by card or from a YooMoney wallet.</p>
+  <form id="buy-form">
+    <input id="buy-email" type="email" required autocomplete="email" data-ph-en="Your e-mail" data-ph-ru="Ваш e-mail" placeholder="Your e-mail">
+    <select id="buy-method">
+      <option value="card" data-en="Bank card" data-ru="Банковская карта">Bank card</option>
+      <option value="wallet" data-en="YooMoney wallet" data-ru="Кошелёк ЮMoney">YooMoney wallet</option>
+    </select>
+    <button type="submit" id="buy-btn" class="buy" data-en="Buy" data-ru="Купить">Buy</button>
+  </form>
+  <p id="buy-msg"></p>
+  <div class="warn">
+    <strong data-en="Important" data-ru="Важно">Important</strong>
+    <ol>
+      <li data-en="If you pay from Russia, switch the VPN off before the payment: with it YooMoney may refuse the payment." data-ru="Перед оплатой из РФ отключите VPN: с ним ЮMoney может не пропустить платёж.">VPN</li>
+      <li data-en="After the payment press &quot;Return to the site&quot;: that is where the key appears." data-ru="После оплаты обязательно нажмите «Вернуться на сайт»: там появится ключ.">Return</li>
+      <li data-en="If the key does not appear for more than a minute, switch the VPN on and refresh the page." data-ru="Если ключ не появляется больше минуты, включите VPN и обновите страницу.">Wait</li>
+      <li data-en="If nothing helps, write to us: we issue the key by hand." data-ru="Если ничего не помогло, напишите нам: выдадим ключ вручную.">Help</li>
+    </ol>
+  </div>
+  <h2 data-en="After the payment" data-ru="После оплаты">After the payment</h2>
+  <p data-en="Download the installer on the download page, install it, put Best Align 3 first on every drum microphone track, and enter the key in the licence window (internet is needed once)." data-ru="Скачайте установщик на странице скачивания, установите, поставьте Best Align 3 первым на каждую дорожку с микрофоном барабанов и введите ключ в окне лицензии (один раз нужен интернет).">Download</p>
+  <p class="muted"><span data-en="No key or need help:" data-ru="Не пришёл ключ или нужна помощь:">Help:</span> <a href="https://t.me/ssm_metalmix">Telegram</a>. <span data-en="Please give the order number and the e-mail." data-ru="Укажите номер заказа и e-mail.">Order</span></p>
 
-  <hr style="border:0;border-top:1px solid var(--line);margin:46px 0">
-
-  <section id="russian">
-    <h1>Best Align 3</h1>
-    <p class="lead">Выравнивание по фазе микрофонов барабанов.</p>
-    <p class="price">2900 ₽</p>
-    <p class="muted">Один лицензионный ключ — один компьютер одновременно. Напишите нам в Telegram: пришлём реквизиты и ключ. (Страница магазина скоро появится.) Сначала попробуйте: пробный период 14 дней со всеми функциями есть в установщике.</p>
-    <a class="pay" href="https://t.me/ssm_metalmix">Купить: напишите нам в Telegram</a>
-    <h2>После оплаты</h2>
-    <p>Скачайте установщик на <a href="download.html">странице скачивания</a>, установите, поставьте Best Align 3 первым на каждую дорожку с микрофоном барабанов и введите ключ в окне лицензии (один раз нужен интернет).</p>
-    <p class="muted">Не пришёл ключ или нужна помощь: <a href="https://t.me/ssm_metalmix">Telegram</a>. Укажите номер заказа.</p>
-  </section>
 </div>
+<script>
+(function () {
+  var SHOP = 'https://best-trigger-license.ssm-audio.workers.dev';
+
+  var lang = (localStorage.getItem('ssm-lang') || ((navigator.language || 'en').slice(0, 2) === 'ru' ? 'ru' : 'en'));
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-' + lang); });
+    document.querySelectorAll('[data-ph-en]').forEach(function (el) { el.placeholder = el.getAttribute('data-ph-' + lang); });
+    document.getElementById('l-en').className = lang === 'en' ? 'on' : '';
+    document.getElementById('l-ru').className = lang === 'ru' ? 'on' : '';
+  }
+  document.getElementById('l-en').onclick = function () { lang = 'en'; try { localStorage.setItem('ssm-lang', lang); } catch (e) {} applyLang(); };
+  document.getElementById('l-ru').onclick = function () { lang = 'ru'; try { localStorage.setItem('ssm-lang', lang); } catch (e) {} applyLang(); };
+
+  var form = document.getElementById('buy-form'), msg = document.getElementById('buy-msg'), btn = document.getElementById('buy-btn');
+  var TX = {
+    en: { soon: 'Soon', soonMsg: 'The sale on this page is opening soon. Meanwhile write to us in Telegram.', wait: 'One moment...', mail: 'Check the e-mail address.', rate: 'Too many attempts, please try later.',
+          off: 'Payment on the site is not available now. Write to us in Telegram.', net: 'Could not reach the server. Try again or write to us in Telegram.', buy: 'Buy ' },
+    ru: { soon: 'Скоро', soonMsg: 'Продажа на этой странице скоро откроется. А пока напишите нам в Telegram.', wait: 'Минуту…', mail: 'Проверьте адрес почты.', rate: 'Слишком много попыток, попробуйте позже.',
+          off: 'Оплата на сайте пока недоступна. Напишите нам в Telegram.', net: 'Не получилось связаться с сервером. Попробуйте ещё раз или напишите нам в Telegram.', buy: 'Купить ' }
+  };
+  var closed = false, amount = 0;
+  function say(k) { msg.textContent = k ? TX[lang][k] : ''; }
+  function closeShop() { closed = true; btn.disabled = true; btn.textContent = TX[lang].soon; say('soonMsg'); }
+  // the price on the button comes from the server (one place: the shop settings), so it can never disagree with the payment
+  fetch(SHOP + '/v1/price?product=ba3').then(function (r) { return r.json(); }).then(function (p) {
+    if (p && p.ok) { amount = p.amount; btn.textContent = TX[lang].buy + p.amount + ' \u20bd'; document.getElementById('price').textContent = p.amount + ' \u20bd'; }
+    else closeShop();
+  }).catch(closeShop);
+  var oldApply = applyLang;
+  applyLang = function () { oldApply(); if (closed) { btn.textContent = TX[lang].soon; say('soonMsg'); } else if (amount) btn.textContent = TX[lang].buy + amount + ' \u20bd'; };
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (closed) return;
+    say('wait');
+    fetch(SHOP + '/v1/order', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ product: 'ba3', email: document.getElementById('buy-email').value, method: document.getElementById('buy-method').value }) })
+      .then(function (r) { return r.json(); })
+      .then(function (o) {
+        if (!o.ok) { say(o.error === 'bad_email' ? 'mail' : o.error === 'rate_limited' ? 'rate' : o.error === 'price_not_set' ? 'soonMsg' : 'off'); return; }
+        if (o.pay.type === 'redirect') { location.href = o.pay.url; return; }
+        var f = document.createElement('form');
+        f.method = o.pay.method; f.action = o.pay.action;
+        Object.keys(o.pay.fields).forEach(function (k) { var i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = o.pay.fields[k]; f.appendChild(i); });
+        document.body.appendChild(f); f.submit();
+      })
+      .catch(function () { say('net'); });
+  });
+
+  applyLang();
+})();
+</script>
 </body>
 </html>

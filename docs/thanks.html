@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Thank you — Best Align 3</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f8f7f4; --ink:#1b2233; --muted:#5d6572; --pill:#dceaf3; --pill-hover:#c8ddeb; --pill-ink:#17365d; --link:#2c6a8e; --line:#e0ddd5; --logo-filter:invert(.85); --warn:rgba(217,130,43,.12); }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14161a; --ink:#e9ebf0; --muted:#a0a6b2; --pill:#303e55; --pill-hover:#3d506e; --pill-ink:#f2f4f8; --link:#8cc2e6; --line:#2c3038; --logo-filter:none; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.55 "Segoe UI", system-ui, Arial, sans-serif; }
+  .page { max-width:760px; margin:0 auto; padding:24px 28px 56px; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:18px; margin-bottom:34px; border-bottom:1px solid var(--line); }
+  .brand { display:flex; align-items:center; gap:12px; font-size:26px; font-weight:600; text-decoration:none; color:var(--ink); }
+  .brand img { height:44px; filter:var(--logo-filter); }
+  .top a { display:inline-block; background:var(--pill); color:var(--pill-ink); text-decoration:none; font-weight:600; padding:10px 22px; border-radius:99px; margin-left:8px; }
+  .lang button { background:transparent; border:1px solid var(--line); color:var(--muted); font:inherit; font-size:14px; padding:6px 12px; border-radius:99px; cursor:pointer; margin-left:6px; }
+  .lang button.on { background:var(--pill); color:var(--pill-ink); font-weight:600; }
+  h1 { font-size:40px; line-height:1.1; margin:0 0 10px; }
+  .lead { font-size:22px; color:var(--muted); margin:0 0 22px; }
+  .price { font-size:34px; font-weight:700; margin:0 0 6px; }
+  .muted { color:var(--muted); font-size:16px; }
+  h2 { font-size:22px; margin:30px 0 8px; }
+  a { color:var(--link); }
+  form { margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  input, select { padding:12px 14px; border-radius:12px; border:1px solid var(--line); background:var(--bg); color:var(--ink); font:inherit; }
+  input { flex:1 1 220px; }
+  button.buy { padding:12px 26px; border-radius:99px; border:0; background:var(--pill); color:var(--pill-ink); font:inherit; font-weight:700; cursor:pointer; }
+  button.buy:disabled { opacity:.5; cursor:default; }
+  .warn { margin-top:16px; padding:14px 16px; border-radius:14px; border:2px solid #d9822b; background:var(--warn); }
+  .warn ol { margin:6px 0 0; padding-left:20px; }
+  .key { font:700 28px Consolas, monospace; letter-spacing:1px; padding:16px 18px; border:1px solid var(--line); border-radius:14px; display:inline-block; margin:10px 0; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a class="brand" href="https://ssm-audio.github.io/"><img src="images/ssm-logo.png" alt="">SSM-Audio</a>
+    <div class="top"><a href="download.html" data-en="Download" data-ru="Скачать">Download</a><a href="manual-en.html" data-en="Manual" data-ru="Руководство">Manual</a>
+      <span class="lang"><button id="l-en" type="button">EN</button><button id="l-ru" type="button">RU</button></span></div>
+  </header>
+
+  <h1 data-en="Thank you!" data-ru="Спасибо за покупку!">Thank you!</h1>
+  <p class="lead">Best Align 3</p>
+  <p id="status" class="muted"><span id="wait" data-en="Waiting for the payment confirmation... this page updates by itself." data-ru="Ждём подтверждение оплаты… страница обновится сама.">Waiting...</span></p>
+  <div id="done" hidden>
+    <p data-en="Your licence key:" data-ru="Ваш лицензионный ключ:">Your licence key:</p>
+    <div class="key" id="key"></div><br>
+    <button type="button" class="buy" id="copy" data-en="Copy" data-ru="Скопировать">Copy</button>
+    <h2 data-en="What next" data-ru="Что дальше">What next</h2>
+    <ol>
+      <li><a href="download.html" data-en="Download the installer" data-ru="Скачайте установщик">Download the installer</a></li>
+      <li data-en="Install it, put Best Align 3 first on every drum microphone track." data-ru="Установите, поставьте Best Align 3 первым на каждую дорожку с микрофоном барабанов.">Install</li>
+      <li data-en="Open the licence window, paste the key, press Activate (internet is needed once)." data-ru="Откройте окно лицензии, вставьте ключ, нажмите Activate (один раз нужен интернет).">Activate</li>
+    </ol>
+  </div>
+  <p id="vpnhint" class="muted" hidden data-en="The server cannot be reached. With some providers it works only through a VPN: switch it on and refresh the page." data-ru="Сервер недоступен. У некоторых провайдеров он открывается только через VPN: включите его и обновите страницу.">VPN</p>
+  <p class="muted"><span data-en="No key or need help:" data-ru="Не пришёл ключ или нужна помощь:">Help:</span> <a href="https://t.me/ssm_metalmix">Telegram</a>. <span data-en="Order number:" data-ru="Номер заказа:">Order:</span> <span id="order"></span></p>
+
+</div>
+<script>
+(function () {
+  var SHOP = 'https://best-trigger-license.ssm-audio.workers.dev';
+
+  var lang = (localStorage.getItem('ssm-lang') || ((navigator.language || 'en').slice(0, 2) === 'ru' ? 'ru' : 'en'));
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-' + lang); });
+    document.querySelectorAll('[data-ph-en]').forEach(function (el) { el.placeholder = el.getAttribute('data-ph-' + lang); });
+    document.getElementById('l-en').className = lang === 'en' ? 'on' : '';
+    document.getElementById('l-ru').className = lang === 'ru' ? 'on' : '';
+  }
+  document.getElementById('l-en').onclick = function () { lang = 'en'; try { localStorage.setItem('ssm-lang', lang); } catch (e) {} applyLang(); };
+  document.getElementById('l-ru').onclick = function () { lang = 'ru'; try { localStorage.setItem('ssm-lang', lang); } catch (e) {} applyLang(); };
+
+  var id = new URLSearchParams(location.search).get('order') || '';
+  document.getElementById('order').textContent = id.slice(0, 8);
+  var TXT = { en: { none: 'The order number was not found. If you paid, write to us in Telegram.', late: 'The payment is not confirmed yet. Refresh the page in a few minutes or write to us in Telegram with the order number.', copied: 'Copied' },
+              ru: { none: 'Не найден номер заказа. Если вы оплатили, напишите нам в Telegram.', late: 'Оплата ещё не подтверждена. Обновите страницу через несколько минут или напишите нам в Telegram с номером заказа.', copied: 'Скопировано' } };
+  var tries = 0, fails = 0;
+  function show(key) {
+    document.getElementById('status').hidden = true;
+    document.getElementById('done').hidden = false;
+    document.getElementById('key').textContent = key;
+    document.getElementById('copy').onclick = function () { navigator.clipboard && navigator.clipboard.writeText(key); this.textContent = TXT[lang].copied; };
+  }
+  function ask() {
+    if (!/^[0-9a-f]{24}$/.test(id)) { document.getElementById('status').textContent = TXT[lang].none; return; }
+    fetch(SHOP + '/v1/order/status?order=' + id).then(function (r) { return r.json(); }).then(function (o) {
+      if (o.ok && o.status === 'issued') { show(o.key); return; }
+      if (++tries < 200) setTimeout(ask, 3000);
+      else document.getElementById('status').textContent = TXT[lang].late;
+    }).catch(function () {
+      if (++fails >= 2) document.getElementById('vpnhint').hidden = false;
+      if (++tries < 200) setTimeout(ask, 5000);
+    });
+  }
+  ask();
+
+  applyLang();
+})();
+</script>
+</body>
+</html>
