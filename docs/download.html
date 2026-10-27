@@ -36,7 +36,7 @@
 <div class="page" id="english">
   <header>
     <a class="brand" href="#english"><img src="images/ssm-logo.png" alt="">SSM-Audio</a>
-    <div class="top"><a class="shop" href="https://ssm-audio.github.io/Best-Align-3/payment.html">buy</a> <a class="shop" href="https://ssm-audio.github.io/Best-Align-3/manual-en.html">Manual</a> <a class="shop" href="https://www.youtube.com/@SSM-AUDIO">Video</a> <a href="#russian">Русский</a></div>
+    <div class="top"><a class="shop" href="https://ssm-audio.github.io/best-align-3/payment.html">buy</a> <a class="shop" href="https://ssm-audio.github.io/best-align-3/manual-en.html">Manual</a> <a class="shop" href="https://www.youtube.com/@SSM-AUDIO">Video</a> <a href="#russian">Русский</a></div>
   </header>
   <div class="cols">
     <div>
@@ -50,9 +50,9 @@
         <li>Solo, Mute and a level on every track, Undo and A/B for the whole group</li>
         <li>VST3 plugin for Windows (macOS later)</li>
       </ul>
-      <a class="news" href="https://github.com/SSM-AUDIO/Best-Align-3/blob/main/CHANGELOG.md#english">what's new in Best Align 3</a>
+      <a class="news" href="https://github.com/SSM-AUDIO/best-align-3/blob/main/CHANGELOG.md#english">what's new in Best Align 3</a>
       <div class="dl" id="get-en">
-        <a class="win" href="https://github.com/SSM-AUDIO/Best-Align-3/releases/latest"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg></span>download for Win</a>
+        <a class="win" href="https://github.com/SSM-AUDIO/best-align-3/releases/latest"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg></span>download for Win</a>
       </div>
       <p class="note">Includes a fully featured 14-day trial.</p>
     </div>
@@ -63,7 +63,7 @@
 <div class="page" id="russian">
   <header>
     <a class="brand" href="#russian"><img src="images/ssm-logo.png" alt="">SSM-Audio</a>
-    <div class="top"><a class="shop" href="https://ssm-audio.github.io/Best-Align-3/payment.html">купить</a> <a class="shop" href="https://ssm-audio.github.io/Best-Align-3/manual-ru.html">Мануал</a> <a class="shop" href="https://www.youtube.com/@SSM-AUDIO">Видео</a> <a href="#english">English</a></div>
+    <div class="top"><a class="shop" href="https://ssm-audio.github.io/best-align-3/payment.html">купить</a> <a class="shop" href="https://ssm-audio.github.io/best-align-3/manual-ru.html">Мануал</a> <a class="shop" href="https://www.youtube.com/@SSM-AUDIO">Видео</a> <a href="#english">English</a></div>
   </header>
   <div class="cols">
     <div>
@@ -77,9 +77,9 @@
         <li>Solo, Mute и уровень на каждой дорожке, Undo и A/B на всю группу</li>
         <li>Плагин VST3 для Windows (macOS позже)</li>
       </ul>
-      <a class="news" href="https://github.com/SSM-AUDIO/Best-Align-3/blob/main/CHANGELOG.md#русский">что нового в Best Align 3</a>
+      <a class="news" href="https://github.com/SSM-AUDIO/best-align-3/blob/main/CHANGELOG.md#русский">что нового в Best Align 3</a>
       <div class="dl" id="get-ru">
-        <a class="win" href="https://github.com/SSM-AUDIO/Best-Align-3/releases/latest"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg></span>скачать для Win</a>
+        <a class="win" href="https://github.com/SSM-AUDIO/best-align-3/releases/latest"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg></span>скачать для Win</a>
       </div>
       <p class="note">Включает полноценный пробный период 14 дней.</p>
     </div>
@@ -89,7 +89,7 @@
 
 <script>
 (function () {
-  fetch('https://api.github.com/repos/SSM-AUDIO/Best-Align-3/releases/latest').then(function (r) { return r.json(); }).then(function (rel) {
+  fetch('https://api.github.com/repos/SSM-AUDIO/best-align-3/releases/latest').then(function (r) { return r.json(); }).then(function (rel) {
     (rel.assets || []).forEach(function (a) {
       var cls = /\.exe$/i.test(a.name) ? 'win' : (/\.pkg$/i.test(a.name) ? 'mac' : '');
       if (!cls) return;
