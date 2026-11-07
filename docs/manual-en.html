@@ -38,7 +38,7 @@
 <header class="top">
   <h1>BEST ALIGN 3</h1>
   <div class="sub">User Manual</div>
-  <div class="ver">Version 0.0.1 (draft) · VST3 · Windows 10/11 · macOS · <a href="manual-ru.html">Русская версия</a></div>
+  <div class="ver">Version 0.0.2 · VST3 · Windows 10/11 · macOS · <a href="manual-ru.html">Русская версия</a></div>
 </header>
 <main>
 
@@ -103,6 +103,8 @@
 <tr><td><b>Hold</b></td><td>Stops the picture so you can look at it.</td></tr>
 <tr><td><b>A row of a track</b></td><td>The round tick (show or hide the wave of this track, in Phase and Spectrum), the name from the DAW, the role, the delay, the polarity <code>Ø</code>, <code>REF</code>, the band button, <code>S</code>, <code>M</code>, the level knob, a level meter and what Auto Align found.</td></tr>
 <tr><td><b>Sum</b></td><td>The tick (show or hide the white wave) and the big <b>Sum gain</b> in dB, judged on the last hits. +3 dB: two equal signals add up perfectly. 0 dB: the tracks do not help each other. Below 0: they cancel. The <b>Group</b> number is here too.</td></tr>
+<tr><td><b>Bypass</b> (header)</td><td>One click bypasses <b>the whole group</b>: every plugin of the group plays its input as it is (no delay, polarity, solo, mute or level), so you hear what the alignment does. It works at once in the windows of all the copies; switch it off and everything comes back. It is not saved in the project.</td></tr>
+<tr><td><b>Follow</b> (header)</td><td>Follows the phase while the DAW plays (section 7).</td></tr>
 <tr><td><b>Auto Align, Reset phase, Reset levels</b></td><td>See sections 7 and 8.</td></tr>
 </table>
 <div class="tip"><b>Only the tracks that are ticked count</b>The Sum, Sum gain and the Spectrum are made only of the tracks whose tick is on. Switch a track off to see how the others sound together.</div>
@@ -125,7 +127,9 @@
   <li>The result of every track is in its row: <i>N% direct</i> (found on its own hits), <i>with its drum</i> (found through the other microphones of the same drum), <i>follows its drum</i>, <i>reference</i>, <i>left as it is</i> (not enough evidence: nothing was changed).</li>
   <li>The bottom line tells how many tracks were aligned. <b>Undo</b> brings the old settings back.</li>
 </ul>
-<div class="warn"><b>It is a one-time action</b>Auto Align works when you press the button. The plugin does not change the delays by itself while you play; it only shows the phase and Sum gain all the time.</div>
+<div class="warn"><b>Auto Align is a one-time action</b>It works when you press the button (or by itself once, with the switch <b>Apply automatically</b>). To keep the phase right while the music plays, use <b>Follow</b>.</div>
+<h2>Follow</h2>
+<p>Switch on <b>Follow</b> in the header after Auto Align. While the DAW plays, the plugin looks at the last 8 seconds every few seconds and corrects the delays a little: by 0.5 ms at most at a time, and never more than 1 ms away from what you (or Auto Align) set. It judges the tracks against each other, trusts only tracks with real evidence, and never changes polarity or the reference. A bigger change (more than 3 ms) is not believed: use Auto Align for that. What you set by hand becomes the new place to follow from. The project remembers that Follow was on.</p>
 
 <h1 id="output">8. Solo, Mute and level</h1>
 <p>These work on the <b>output</b> of the track, like in a mixer. The phase, Sum gain and Auto Align do not depend on them: the group always hears the track as it was recorded.</p>
@@ -135,6 +139,17 @@
   <li><b>The knob</b>: -60 to +12 dB. Drag, wheel, double click = 0 dB, right click = type a number.</li>
   <li><b>Reset phase</b>: every delay 0, no polarity turned over. <b>Reset levels</b>: every level 0 dB, no mute, no solo. Each leaves the other alone.</li>
 </ul>
+
+<h1 id="bass">Bass and guitars (DI and amplifier)</h1>
+<p>Best Align 3 also lines up a <b>bass guitar</b> or an <b>electric guitar</b>: the DI against the amplifier, the amplifier against its microphones, two microphones of one cabinet, a reamp.</p>
+<ol class="steps">
+  <li>Put one copy on every track of <b>one instrument</b> and give them <b>their own Group number</b> (for example 2 for the bass, 3 for a guitar). Do not mix them with the drums.</li>
+  <li>Choose the roles: <b>Bass DI</b>, <b>Bass Amp</b> (microphone, reamp, amp simulation), <b>Guitar DI</b>, <b>Guitar Amp</b> (microphone or room). The plugin guesses them from the track names (<i>Bass DI</i>, <i>Gtr Hoss 57</i>, <i>G1 AC30 Amp</i>).</li>
+  <li>Play the part for about 8 seconds and press <b>Auto Align</b> (or use <b>Apply automatically</b>). The DI is the reference; if there is none, the first track.</li>
+</ol>
+<p>How it works: a bass or a guitar plays notes, so the sound is periodic and an amplifier bends it (distortion, filters). The plugin compares the <b>whole sound</b> in three bands with the same polarity, uses the shape of the notes to tell the right place from its echoes, polishes the delay to the sample, and checks that both halves of the window agree. The <b>Sum gain</b> of the group is judged on the whole sound here, not on hits.</p>
+<div class="tip"><b>What to expect</b>A DI and a microphone of the amplifier are usually 2–4 ms apart. Two microphones of one cabinet: a fraction of a millisecond, and often in phase already. A <b>room</b> microphone that hears other instruments too is left as it is ("left as it is"): it does not hold the same sound. A DI against its own <b>reamp</b> through an amplifier whose low end shifts the phase has no single perfect delay: the plugin takes the place where the sum is best, and the answer can differ between parts of the song; judge it by the Sum gain and, if needed, set that track by hand.</div>
+<p>Follow works for these groups too.</p>
 
 <h1 id="groups">9. Groups, roles, undo</h1>
 <ul>
@@ -169,7 +184,7 @@
 <h1 id="legal">13. Legal</h1>
 <p>Best Align 3 is licensed, not sold. See the licence agreement (EULA) that comes with the installer. © 2026 SSM-Audio. VST is a trademark of Steinberg Media Technologies GmbH. The plugin uses the JUCE framework (© Raw Material Software Limited).</p>
 
-<footer>Best Align 3 · version 0.0.1 · SSM-Audio</footer>
+<footer>Best Align 3 · version 0.0.2 · SSM-Audio</footer>
 </main>
 </body>
 </html>

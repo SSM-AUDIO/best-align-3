@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "The first version of Best Align 3: the phase of the drum microphones on separate tracks, Auto Align, manual alignment by dragging a line, Spectrum, Solo / Mute / level, Undo and A/B.\nA 14-day trial and licence keys."
+  "notes": "Auto Align for bass and guitars (DI and after the amp): new roles Bass DI, Bass Amp, Guitar DI, Guitar Amp. Put them in their own group; the plugin aligns the whole sound, not hits.\nFollow: keeps the phase while the DAW plays (small steps, never far from where you set it).\nBypass for the whole group in one click.\nA warning in the bottom line when drums and bass/guitar share one group.\nActivation data: for a DAW the plugin does not recognise, the file name of that program (only the name, no folder) is sent with the trial or activation request instead of just \"Unknown\"."
 }
