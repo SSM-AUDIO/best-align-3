@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "Auto Align for bass and guitars (DI and after the amp): new roles Bass DI, Bass Amp, Guitar DI, Guitar Amp. Put them in their own group; the plugin aligns the whole sound, not hits.\nFollow: keeps the phase while the DAW plays (small steps, never far from where you set it).\nBypass for the whole group in one click.\nA warning in the bottom line when drums and bass/guitar share one group.\nActivation data: for a DAW the plugin does not recognise, the file name of that program (only the name, no folder) is sent with the trial or activation request instead of just \"Unknown\"."
+  "notes": "Extra protection: the plugin now works only in a DAW that it recognises (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason and other well-known ones). In any other program the sound passes unchanged and the bottom line says why."
 }

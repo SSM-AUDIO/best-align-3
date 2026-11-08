@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.3
+- Extra protection: the plugin works only in a DAW that it recognises (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason and other well-known ones). In any other program the sound passes unchanged.
+
 ### 0.0.2
 - Auto Align for bass and guitars (DI and after the amp): new roles Bass DI, Bass Amp, Guitar DI, Guitar Amp. Put them in their own group.
 - Follow: keeps the phase while the DAW plays.
@@ -14,6 +17,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.3
+- Дополнительная защита: плагин работает только в узнаваемой им DAW (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason и другие известные). В любой другой программе звук проходит без изменений.
 
 ### 0.0.2
 - Auto Align для баса и гитар (DI и после усилителя): новые роли Bass DI, Bass Amp, Guitar DI, Guitar Amp. Ставьте их в отдельную группу.
