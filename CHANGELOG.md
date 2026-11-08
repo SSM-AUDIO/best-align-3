@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.4
+- Update notice: when an old version is no longer supported, the bottom line asks you to update (30 days to do it, the plugin works meanwhile). After that the sound passes unchanged until you install the new version.
+
 ### 0.0.3
 - Extra protection: the plugin works only in a DAW that it recognises (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason and other well-known ones). In any other program the sound passes unchanged.
 
@@ -17,6 +20,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.4
+- Напоминание об обновлении: когда старая версия больше не поддерживается, нижняя строка просит обновиться (на это 30 дней, плагин пока работает). После этого звук проходит без изменений, пока не установлена новая версия.
 
 ### 0.0.3
 - Дополнительная защита: плагин работает только в узнаваемой им DAW (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason и другие известные). В любой другой программе звук проходит без изменений.
