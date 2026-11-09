@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.8
+- The trial now asks for your e-mail (it is needed for the trial and for news about new versions; the privacy policy is linked in the window).
+
 ### 0.0.7
 - LUNA (Universal Audio, macOS) is recognised: the plugin works in it.
 
@@ -30,6 +33,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.8
+- Пробный период теперь спрашивает вашу почту (она нужна для пробного периода и для новостей о новых версиях; политика конфиденциальности по ссылке в окне).
 
 ### 0.0.7
 - LUNA (Universal Audio, macOS) узнаётся: плагин в ней работает.
