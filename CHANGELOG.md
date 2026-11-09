@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.7
+- LUNA (Universal Audio, macOS) is recognised: the plugin works in it.
+
 ### 0.0.6
 - Fender Studio Pro (the new name of Studio One) is recognised: the plugin works in it.
 
@@ -27,6 +30,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.7
+- LUNA (Universal Audio, macOS) узнаётся: плагин в ней работает.
 
 ### 0.0.6
 - Fender Studio Pro (новое имя Studio One) узнаётся: плагин в ней работает.

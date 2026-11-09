@@ -1,5 +1,5 @@
 {
-  "version": "0.0.6",
+  "version": "0.0.7",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "Fender Studio Pro (the new name of Studio One) is recognised: the plugin works in it."
+  "notes": "LUNA (Universal Audio, macOS) is recognised: the plugin works in it."
 }
