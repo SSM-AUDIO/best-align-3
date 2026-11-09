@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.9
+- Messages from SSM-Audio: now and then a short message (news, a new version) is shown once in a window. The plugin tells the server only the product, its version, the language of the system, trial or key, and which messages were shown: no computer id, no key, no e-mail.
+
 ### 0.0.8
 - The trial now asks for your e-mail (it is needed for the trial and for news about new versions; the privacy policy is linked in the window).
 
@@ -33,6 +36,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.9
+- Сообщения от SSM-Audio: время от времени короткое сообщение (новости, новая версия) показывается один раз в окне. Серверу плагин сообщает только продукт, версию, язык системы, пробный период или ключ и какие сообщения уже показаны: ни номера компьютера, ни ключа, ни почты.
 
 ### 0.0.8
 - Пробный период теперь спрашивает вашу почту (она нужна для пробного периода и для новостей о новых версиях; политика конфиденциальности по ссылке в окне).

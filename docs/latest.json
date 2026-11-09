@@ -1,5 +1,5 @@
 {
-  "version": "0.0.8",
+  "version": "0.0.9",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "The trial now asks for your e-mail (it is needed for the trial and for news about new versions; the privacy policy is linked in the window)."
+  "notes": "Messages from SSM-Audio: now and then a short message (news, a new version) is shown once in a window. The plugin tells the server only the product, its version, the language of the system, trial or key, and which messages were shown: no computer id, no key, no e-mail."
 }
