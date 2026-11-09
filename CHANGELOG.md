@@ -2,6 +2,9 @@
 
 ## English
 
+### 0.0.6
+- Fender Studio Pro (the new name of Studio One) is recognised: the plugin works in it.
+
 ### 0.0.5
 - Lost your key? The licence window has a "Lost your key?" button (the key is sent to the e-mail given at the purchase). On a computer where the key is activated, "Show my key" shows it and "Copy" copies it.
 - A program that the plugin does not recognise: a clear warning at start and every 40 seconds, and a red button in the corner that shows it again. More real DAWs are recognised (MorningDAW, LMMS, Zrythm, Qtractor, Mixcraft, Renoise).
@@ -24,6 +27,9 @@
 The first version.
 
 ## Русский
+
+### 0.0.6
+- Fender Studio Pro (новое имя Studio One) узнаётся: плагин в ней работает.
 
 ### 0.0.5
 - Потеряли ключ? В окне лицензии есть кнопка «Lost your key?» (ключ приходит на почту, указанную при покупке). На компьютере, где ключ активирован, «Show my key» показывает его, «Copy» копирует.
