@@ -2,6 +2,10 @@
 
 ## English
 
+### 0.0.5
+- Lost your key? The licence window has a "Lost your key?" button (the key is sent to the e-mail given at the purchase). On a computer where the key is activated, "Show my key" shows it and "Copy" copies it.
+- A program that the plugin does not recognise: a clear warning at start and every 40 seconds, and a red button in the corner that shows it again. More real DAWs are recognised (MorningDAW, LMMS, Zrythm, Qtractor, Mixcraft, Renoise).
+
 ### 0.0.4
 - Update notice: when an old version is no longer supported, the bottom line asks you to update (30 days to do it, the plugin works meanwhile). After that the sound passes unchanged until you install the new version.
 
@@ -20,6 +24,10 @@
 The first version.
 
 ## Русский
+
+### 0.0.5
+- Потеряли ключ? В окне лицензии есть кнопка «Lost your key?» (ключ приходит на почту, указанную при покупке). На компьютере, где ключ активирован, «Show my key» показывает его, «Copy» копирует.
+- Программа, которую плагин не узнаёт: понятное предупреждение при запуске и каждые 40 секунд, красная кнопка в углу открывает его снова. Узнаётся больше настоящих DAW (MorningDAW, LMMS, Zrythm, Qtractor, Mixcraft, Renoise).
 
 ### 0.0.4
 - Напоминание об обновлении: когда старая версия больше не поддерживается, нижняя строка просит обновиться (на это 30 дней, плагин пока работает). После этого звук проходит без изменений, пока не установлена новая версия.
