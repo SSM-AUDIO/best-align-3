@@ -1,5 +1,5 @@
 {
-  "version": "0.0.9",
+  "version": "0.0.10",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "Messages from SSM-Audio: now and then a short message (news, a new version) is shown once in a window. The plugin tells the server only the product, its version, the language of the system, trial or key, and which messages were shown: no computer id, no key, no e-mail."
+  "notes": "Shorter texts in the plugin window and in the manual: only what you need to set up and use the plugin."
 }

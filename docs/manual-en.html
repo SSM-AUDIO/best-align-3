@@ -38,7 +38,7 @@
 <header class="top">
   <h1>BEST ALIGN 3</h1>
   <div class="sub">User Manual</div>
-  <div class="ver">Version 0.0.9 · VST3 · Windows 10/11 · macOS · <a href="manual-ru.html">Русская версия</a></div>
+  <div class="ver">Version 0.0.10 · VST3 · Windows 10/11 · macOS · <a href="manual-ru.html">Русская версия</a></div>
 </header>
 <main>
 
@@ -68,7 +68,6 @@
   <li>Solo, Mute and a level knob on every track, Undo and A/B for the whole group.</li>
 </ul>
 <figure><img src="images/best-align-3.png" alt="The window of Best Align 3"><figcaption>Best Align 3: the Phase view, the rows of the tracks, the Sum and Auto Align.</figcaption></figure>
-<p>The plugin has no samples and no sound of its own: the audio of every track goes through it, delayed by the amount you set.</p>
 
 <h1 id="install">2. Installation</h1>
 <ol class="steps">
@@ -80,10 +79,9 @@
 <p><b>macOS (10.15 or newer, Apple chips and Intel):</b> run <code>BestAlign3-X.Y.Z-macOS.pkg</code>. The plugin goes to <code>/Library/Audio/Plug-Ins/VST3</code>. The installer is not notarised by Apple: the first time, press the right mouse button on the file, choose <b>Open</b>, then <b>Open</b> again; if the DAW does not show the plugin, follow <a href="install-macos.html">the short guide</a>. To remove it, delete <code>Best Align 3.vst3</code> from that folder.</p>
 
 <h1 id="licence">3. Trial and licence</h1>
-<p>On the first start the plugin offers a <b>14-day trial</b>: one for every computer. To start it, enter your e-mail (it is needed for the trial and for news about new versions; see the privacy policy linked in the window). After that you need a <b>licence key</b> from our store. A key works on one computer at a time; to move it, open the licence window and press "Deactivate this computer", then activate it on the other computer. The plugin needs the internet to start the trial and to activate; it then works without it, and checks the licence again at every start and about every 12 hours.</p>
-<p><b>Lost your key?</b> In the licence window press "Lost your key?": the page opens where the key is sent to the e-mail given at the purchase. On a computer where the key is already activated, press "Show my key" in the licence window: the key is shown and can be copied.</p>
-<p><b>Messages from SSM-Audio.</b> Now and then the plugin may show a short message from us in a window (news, a new version). Each message is shown only once. The plugin tells the server only the product, its version, the language of the system, whether it is in a trial or has a key, and which messages it has already shown: no computer id, no key, no e-mail.</p>
-<p>Your audio is never sent anywhere. See the licence agreement for the details.</p>
+<p>On the first start the plugin offers a <b>14-day trial</b>, one for every computer. Enter your e-mail and press the button. After the trial you need a <b>licence key</b> from our store. A key works on one computer at a time: to move it, press "Deactivate this computer" in the licence window and activate it on the other computer. The internet is needed to start the trial and to activate.</p>
+<p><b>Lost your key?</b> Press "Lost your key?" in the licence window and enter the e-mail you used at the purchase. On a computer where the key is already activated, press "Show my key": the key is shown and can be copied.</p>
+<p><b>Messages from SSM-Audio.</b> From time to time the plugin shows a short message in a window. Each message is shown once.</p>
 
 <h1 id="quick">4. Quick start</h1>
 <ol class="steps">
@@ -100,12 +98,12 @@
 <table>
 <tr><th>Part</th><th>What it does</th></tr>
 <tr><td><b>Header</b></td><td>A / B / Copy: two settings of the whole group to compare. Undo / Redo: the last 20 steps. The gear: settings (section 10).</td></tr>
-<tr><td><b>Phase</b></td><td>The bass of every track around one hit, after its delay and polarity — exactly what the plugins play. One colour per track; the white wave is the sum. When the tracks are in phase the sum is taller than any of them. Every track has a vertical line with a handle at the top.</td></tr>
-<tr><td><b>Spectrum</b></td><td>The sum of the tracks against the sum of their powers (the thin grey line). Where the orange curve is above the grey line the tracks help each other; where it falls below, they cancel (a comb filter). Chips at the top: Speed, Mode (Energy / RMS), Slope, Bands; arrows move the picture; Reset.</td></tr>
+<tr><td><b>Phase</b></td><td>The bass of every track around one hit, after its delay and polarity. One colour per track; the white wave is the sum. When the tracks are in phase the sum is taller than any of them. Every track has a vertical line with a handle at the top.</td></tr>
+<tr><td><b>Spectrum</b></td><td>The sum of the tracks against the sum of their powers (the thin grey line). Where the orange curve is above the grey line the tracks help each other; where it falls below, they cancel. Chips at the top: Speed, Mode (Energy / RMS), Slope, Bands; arrows move the picture; Reset.</td></tr>
 <tr><td><b>Hold</b></td><td>Stops the picture so you can look at it.</td></tr>
 <tr><td><b>A row of a track</b></td><td>The round tick (show or hide the wave of this track, in Phase and Spectrum), the name from the DAW, the role, the delay, the polarity <code>Ø</code>, <code>REF</code>, the band button, <code>S</code>, <code>M</code>, the level knob, a level meter and what Auto Align found.</td></tr>
 <tr><td><b>Sum</b></td><td>The tick (show or hide the white wave) and the big <b>Sum gain</b> in dB, judged on the last hits. +3 dB: two equal signals add up perfectly. 0 dB: the tracks do not help each other. Below 0: they cancel. The <b>Group</b> number is here too.</td></tr>
-<tr><td><b>Bypass</b> (header)</td><td>One click bypasses <b>the whole group</b>: every plugin of the group plays its input as it is (no delay, polarity, solo, mute or level), so you hear what the alignment does. It works at once in the windows of all the copies; switch it off and everything comes back. It is not saved in the project.</td></tr>
+<tr><td><b>Bypass</b> (header)</td><td>One click bypasses <b>the whole group</b>: every plugin of the group plays its input as it is (no delay, polarity, solo, mute or level), so you hear what the alignment does. Switch it off and everything comes back. It is not saved in the project.</td></tr>
 <tr><td><b>Follow</b> (header)</td><td>Follows the phase while the DAW plays (section 7).</td></tr>
 <tr><td><b>Auto Align, Reset phase, Reset levels</b></td><td>See sections 7 and 8.</td></tr>
 </table>
@@ -119,7 +117,7 @@
   <li><code>Ø</code> turns the polarity of the track over.</li>
   <li><code>REF</code> makes this track the reference. It is the one that is never delayed more than the others need; usually the overheads.</li>
 </ul>
-<p>The delay is from 0 to 50 ms in whole samples. A change is faded over 5 ms, so there is no click.</p>
+<p>The delay is from 0 to 50 ms in whole samples.</p>
 
 <h1 id="auto">7. Auto Align</h1>
 <p>Auto Align listens to the last 8 seconds of every track and sets the delay and the polarity of each of them against the reference. It needs at least two tracks and some hits in the reference.</p>
@@ -131,7 +129,7 @@
 </ul>
 <div class="warn"><b>Auto Align is a one-time action</b>It works when you press the button (or by itself once, with the switch <b>Apply automatically</b>). To keep the phase right while the music plays, use <b>Follow</b>.</div>
 <h2>Follow</h2>
-<p>Switch on <b>Follow</b> in the header after Auto Align. While the DAW plays, the plugin looks at the last 8 seconds every few seconds and corrects the delays a little: by 0.5 ms at most at a time, and never more than 1 ms away from what you (or Auto Align) set. It judges the tracks against each other, trusts only tracks with real evidence, and never changes polarity or the reference. A bigger change (more than 3 ms) is not believed: use Auto Align for that. What you set by hand becomes the new place to follow from. The project remembers that Follow was on.</p>
+<p>Switch on <b>Follow</b> in the header after Auto Align. While the DAW plays, the plugin corrects the delays a little. It never changes the polarity or the reference. For a bigger change (more than 3 ms) use Auto Align. What you set by hand becomes the new starting point. The project remembers that Follow was on.</p>
 
 <h1 id="output">8. Solo, Mute and level</h1>
 <p>These work on the <b>output</b> of the track, like in a mixer. The phase, Sum gain and Auto Align do not depend on them: the group always hears the track as it was recorded.</p>
@@ -149,8 +147,7 @@
   <li>Choose the roles: <b>Bass DI</b>, <b>Bass Amp</b> (microphone, reamp, amp simulation), <b>Guitar DI</b>, <b>Guitar Amp</b> (microphone or room). The plugin guesses them from the track names (<i>Bass DI</i>, <i>Gtr Hoss 57</i>, <i>G1 AC30 Amp</i>).</li>
   <li>Play the part for about 8 seconds and press <b>Auto Align</b> (or use <b>Apply automatically</b>). The DI is the reference; if there is none, the first track.</li>
 </ol>
-<p>How it works: a bass or a guitar plays notes, so the sound is periodic and an amplifier bends it (distortion, filters). The plugin compares the <b>whole sound</b> in three bands with the same polarity, uses the shape of the notes to tell the right place from its echoes, polishes the delay to the sample, and checks that both halves of the window agree. The <b>Sum gain</b> of the group is judged on the whole sound here, not on hits.</p>
-<div class="tip"><b>What to expect</b>A DI and a microphone of the amplifier are usually 2–4 ms apart. Two microphones of one cabinet: a fraction of a millisecond, and often in phase already. A <b>room</b> microphone that hears other instruments too is left as it is ("left as it is"): it does not hold the same sound. A DI against its own <b>reamp</b> through an amplifier whose low end shifts the phase has no single perfect delay: the plugin takes the place where the sum is best, and the answer can differ between parts of the song; judge it by the Sum gain and, if needed, set that track by hand.</div>
+<div class="tip"><b>What to expect</b>A DI and a microphone of the amplifier are usually 2–4 ms apart. Two microphones of one cabinet: a fraction of a millisecond, and often in phase already. A <b>room</b> microphone that hears other instruments too is left as it is ("left as it is"). If the result of a track looks wrong, judge it by the Sum gain and set that track by hand.</div>
 <p>Follow works for these groups too.</p>
 
 <h1 id="groups">9. Groups, roles, undo</h1>
@@ -165,11 +162,11 @@
 
 <h1 id="daw">11. Notes for the DAW</h1>
 <ul>
-  <li>The plugin <b>does not report latency</b> to the DAW on purpose: if it did, the DAW would cancel the alignment. The delay you set is the delay you hear.</li>
-  <li>Put the plugin first on the track. A plugin before it that changes the timing will change what it hears.</li>
-  <li>The copies must be in the <b>same project</b> and play together. They exchange sound inside your computer, in memory shared between them.</li>
+  <li>The plugin <b>does not report latency</b> to the DAW: the delay you set is the delay you hear.</li>
+  <li>Put the plugin first on the track.</li>
+  <li>The copies must be in the <b>same project</b> and play together.</li>
   <li>While the DAW is stopped the last picture stays, and the lines still follow the delays you set. Auto Align needs the DAW to play.</li>
-  <li>The plugin works only in a DAW it recognises (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason and other well-known ones). In any other program (a plugin checker, a renamed program) it passes the sound unchanged and says so in the bottom line.</li>
+  <li>The plugin works only in a DAW it recognises (REAPER, Studio One, Cubase, Nuendo, Ableton Live, FL Studio, Bitwig, Logic, Pro Tools, Reason and other well-known ones). In any other program it passes the sound unchanged and says so in the bottom line.</li>
   <li>Tested in REAPER. Other DAWs with VST3 (Studio One, Cubase, Ableton, FL Studio, Bitwig, Reason) are being checked.</li>
 </ul>
 
@@ -187,7 +184,7 @@
 <h1 id="legal">13. Legal</h1>
 <p>Best Align 3 is licensed, not sold. See the licence agreement (EULA) that comes with the installer. © 2026 SSM-Audio. VST is a trademark of Steinberg Media Technologies GmbH. The plugin uses the JUCE framework (© Raw Material Software Limited).</p>
 
-<footer>Best Align 3 · version 0.0.9 · SSM-Audio</footer>
+<footer>Best Align 3 · version 0.0.10 · SSM-Audio</footer>
 </main>
 </body>
 </html>
