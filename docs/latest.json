@@ -1,5 +1,5 @@
 {
-  "version": "0.0.10",
+  "version": "0.0.11",
   "url": "https://ssm-audio.github.io/best-align-3/download.html",
-  "notes": "Shorter texts in the plugin window and in the manual: only what you need to set up and use the plugin."
+  "notes": "Delay values stay with their own tracks when a project opens.\nApply automatically switches off after alignment."
 }

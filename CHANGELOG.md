@@ -2,6 +2,10 @@
 
 ## English
 
+### 0.0.11
+- Delay values stay with their own tracks when a project opens.
+- Apply automatically switches off after alignment.
+
 ### 0.0.10
 - Shorter texts in the plugin window and in the manual: only what you need to set up and use the plugin.
 
@@ -38,6 +42,10 @@
 The first version.
 
 ## Русский
+
+### 0.0.11
+- При открытии проекта значения Delay остаются у своих дорожек.
+- Apply automatically выключается после выравнивания.
 
 ### 0.0.10
 - Тексты в окне плагина и в руководстве стали короче: только то, что нужно для настройки и работы.
